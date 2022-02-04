@@ -18,7 +18,8 @@ for i in range(a, b+1):
 
 n = int(input("Please enter a number "))
 sumCubed = 0
-for i in range i**3
+for i in range(n+1):
+    sumCubed += i**3
 print(sumCubed)
 
 # Task 3538
