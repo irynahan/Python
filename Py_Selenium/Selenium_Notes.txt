@@ -1,0 +1,10 @@
+# Waits Documentation
+
+https://selenium-python.readthedocs.io/waits.html
+
+# Expected conditions Support 7.34
+
+https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditions
+
+
+
