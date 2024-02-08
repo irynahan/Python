@@ -1,3 +1,4 @@
+
 # Waits Documentation
 
 https://selenium-python.readthedocs.io/waits.html
@@ -7,4 +8,15 @@ https://selenium-python.readthedocs.io/waits.html
 https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditions
 
 
+# Customization the Wait Class
 
+The Wait class can be instantiated with various parameters that will change how the conditions are evaluated.
+
+This can include:
+
+Changing how often the code is evaluated (polling interval)
+Specifying which exceptions should be handled automatically
+Changing the total timeout length
+Customizing the timeout message
+
+https://www.selenium.dev/documentation/webdriver/waits/
