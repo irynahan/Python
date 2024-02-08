@@ -7,6 +7,13 @@ https://selenium-python.readthedocs.io/waits.html
 
 https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditions
 
+# document.readyState  - capability pageLoadStrategy
+
+DesiredCapabilities capabilities = new DesiredCapabilities();
+capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+WebDriver driver = new FirefoxDriver(capabilities);
+https://barancev.github.io/slow-loading-pages/
+
 
 # Customization the Wait Class
 
