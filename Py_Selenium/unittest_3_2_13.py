@@ -6,7 +6,7 @@ import unittest
 
 class TestRegistration(unittest.TestCase):
 
-    def test_registration_positive(self):
+    def test_registration1_positive(self):
         driver = webdriver.Chrome(service=webdriver.chrome.service.Service(
             executable_path='C:\projects\Tools\chrome-driver\chromedriver.exe'))
         driver.implicitly_wait(5)
@@ -31,13 +31,13 @@ class TestRegistration(unittest.TestCase):
         # get text from welcome_text_elt
         welcome_text = welcome_text_elt.text
 
-        # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
+        # check if registration was successful
         expected_welcome_message = "Congratulations! You have successfully registered!"
         self.assertEqual(welcome_text, expected_welcome_message, "Welcome message is not equal to expected message")
 
-        # ожидание чтобы визуально оценить результаты прохождения скрипта
+        # pause to check result
         time.sleep(10)
-        # закрываем браузер после всех манипуляций
+        # quit browser
         driver.quit()
 
 if __name__ == "__main__":
