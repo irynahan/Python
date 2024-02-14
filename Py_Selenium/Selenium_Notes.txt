@@ -27,3 +27,18 @@ Changing the total timeout length
 Customizing the timeout message
 
 https://www.selenium.dev/documentation/webdriver/waits/
+
+# Packages version save to file
+
+pip freeze > requirements.txt
+pip install -r requirements.txt to install all packages in a new enwironment
+
+# Run tests mit PyTest
+
+pip install pytest
+
+pytest scripts/selenium_scripts   - run all test in directory scripts/selenium_scripts
+
+pytest test_user_interface.py	  - find and run all tests in the file test_user_interface.py
+
+pytest scripts/drafts.py::test_register_new_user_parametrized   - find and run test with name test_register_new_user_parametrized
