@@ -23,8 +23,9 @@ def driver():
 @pytest.mark.registration
 class TestRegistration():
 
-    # to run pytest -s -v -m positive file.py
+    # to run pytest -s -v -m positive file.py   , "not positive", "positive and win10", "positive or negative"
     @pytest.mark.positive
+    @pytest.mark.win10
     def test_registration1_positive(self, driver):
 
         driver.get(link1)
@@ -52,6 +53,7 @@ class TestRegistration():
 
         # pause to check result
         time.sleep(5)
+
 
     @pytest.mark.negative
     def test_registration2_negative(self, driver):

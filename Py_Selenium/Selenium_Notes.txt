@@ -50,3 +50,11 @@ markers =
     regression: marker for regression test
 after : is only description
 
+# Run marked tests
+
+run all tests except  pytest -s -v -m "not smoke" file.py 
+run tests with one of 2 marks pytest -s -v -m "smoke or regression" file.py 
+run tests wich match at the same time 2 marks pytest -s -v -m "smoke and win10" file.py 
+
+
+
