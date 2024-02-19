@@ -52,9 +52,14 @@ after : is only description
 
 # Run marked tests
 
-run all tests except  pytest -s -v -m "not smoke" file.py 
+run all tests except  pytest -s -v -m "not smoke" file.py   (-s )
 run tests with one of 2 marks pytest -s -v -m "smoke or regression" file.py 
 run tests wich match at the same time 2 marks pytest -s -v -m "smoke and win10" file.py 
+
+https://docs.pytest.org/en/latest/how-to/skipping.html
+https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail
+@pytest.mark.skip / skipif - skip a test
+@pytest.mark.xfail (reason = "fix") - test fails, but we want to receive a success test execution result with a note, that this test fails; -rx to print reason in report
 
 
 

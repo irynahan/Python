@@ -26,6 +26,7 @@ class TestRegistration():
     # to run pytest -s -v -m positive file.py   , "not positive", "positive and win10", "positive or negative"
     @pytest.mark.positive
     @pytest.mark.win10
+    # @pytest.mark.skip
     def test_registration1_positive(self, driver):
 
         driver.get(link1)
@@ -53,8 +54,8 @@ class TestRegistration():
 
         # pause to check result
         time.sleep(5)
-
-
+    # -rx to print reason in report
+    @pytest.mark.xfail(reason="under the fix")
     @pytest.mark.negative
     def test_registration2_negative(self, driver):
 
@@ -78,3 +79,7 @@ class TestRegistration():
         # check if registration was successful
         expected_welcome_message = "Congratulations! You have successfully registered!"
         assert welcome_text == expected_welcome_message, "Welcome message is not equal to expected message"
+
+    @pytest.mark.xfail(reason="to test if test suite fails despite the True result", strict=True)
+    def test_sum(self):
+        assert 1 + 2 == 3
