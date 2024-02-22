@@ -61,5 +61,7 @@ https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail
 @pytest.mark.skip / skipif - skip a test
 @pytest.mark.xfail (reason = "fix") - test fails, but we want to receive a success test execution result with a note, that this test fails; -rx to print reason in report
 
+# Parametrisation
 
+https://docs.pytest.org/en/latest/how-to/parametrize.html
 

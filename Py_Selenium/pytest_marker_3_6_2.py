@@ -14,17 +14,18 @@ class TestRegistration():
     # to run pytest -s -v -m positive file.py   , "not positive", "positive and win10", "positive or negative"
     @pytest.mark.positive
     @pytest.mark.win10
-    def test_registration1_positive(self, driver):
+    @pytest.mark.parametrize("firstName, lastName, email", [('Anni', 'Frank', '@gmail.com'), ('Tim', 'Mueller', '@gmx.de')])
+    def test_registration1_positive(self, driver, firstName, lastName, email):
 
         driver.get(link1)
 
         # fill in obligatory fields
         first_name = driver.find_element(By.CSS_SELECTOR, '.first_block .first_class input')
-        first_name.send_keys('Frank')
+        first_name.send_keys(firstName)
         last_name = driver.find_element(By.CSS_SELECTOR, '.first_block .second_class input')
-        last_name.send_keys('Martin')
+        last_name.send_keys(lastName)
         email = driver.find_element(By.CSS_SELECTOR, '.first_block .third_class input')
-        email.send_keys('frank@omg.com')
+        email.send_keys(f'{firstName}.{last_name}@{email}')
 
         # submit form
         submit = driver.find_element(By.CSS_SELECTOR,'.btn')
@@ -44,19 +45,21 @@ class TestRegistration():
 
 
     # -rx to print reason in report
-    @pytest.mark.xfail(reason="under the fix")
+    #@pytest.mark.xfail(reason="under the fix")
     @pytest.mark.negative
-    def test_registration2_negative(self, driver):
+    @pytest.mark.parametrize("firstName, lastName, email",
+                             [('Anni', 'Frank', '@gmail.com'), ('Tim', 'Mueller', '@gmx.de')])
+    def test_registration2_negative(self, driver, firstName, lastName, email):
 
         driver.get(link2)
 
-        # fill in obligatory fields - no suchElementEx last_name
+        # fill in obligatory fields
         first_name = driver.find_element(By.CSS_SELECTOR, '.first_block .first_class input')
-        first_name.send_keys('Frank')
+        first_name.send_keys(firstName)
         last_name = driver.find_element(By.CSS_SELECTOR, '.first_block .second_class input')
-        last_name.send_keys('Martin')
+        last_name.send_keys(lastName)
         email = driver.find_element(By.CSS_SELECTOR, '.first_block .third_class input')
-        email.send_keys('frank@omg.com')
+        email.send_keys(f'{firstName}.{last_name}@{email}')
 
         # submit form
         submit = driver.find_element(By.CSS_SELECTOR, '.btn')
