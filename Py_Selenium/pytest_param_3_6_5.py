@@ -6,14 +6,14 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import math
 
-link = "https://stepik.org/lesson/236895/step/1"
+links = ['https://stepik.org/lesson/236895/step/1','https://stepik.org/lesson/236896/step/1','https://stepik.org/lesson/236897/step/1','https://stepik.org/lesson/236898/step/1','https://stepik.org/lesson/236899/step/1','https://stepik.org/lesson/236903/step/1','https://stepik.org/lesson/236904/step/1','https://stepik.org/lesson/236905/step/1']
 
 def input_text():
     return math.log(int(time.time()-21.2))
 
-def test_stepik_authoriz(driver):
-
-        driver.get(link)
+@pytest.mark.parametrize("address_link", links)
+def test_stepik_authoriz(driver, address_link):
+        driver.get(address_link)
         # select enter for registered user
         enter_btn = WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, "ember36")))
         enter_btn.click()
@@ -21,12 +21,16 @@ def test_stepik_authoriz(driver):
         login_tab = WebDriverWait(driver,120).until(EC.element_to_be_clickable((By.XPATH, "//a[@data-tab-name = 'login']")))
         login_tab.click()
         # fill in fields and submit
-        driver.find_element(By.NAME,"login").send_keys("EMAIL")
-        driver.find_element(By.NAME, "password").send_keys("PASSWORD")
+        driver.find_element(By.NAME,"login").send_keys("login")
+        driver.find_element(By.NAME, "password").send_keys("password")
         driver.find_element(By.CSS_SELECTOR,"[class='sign-form__btn button_with-loader ']").click()
 
-        if driver.find_element(By.XPATH, "//button[@class='again-btn white']").is_displayed():
-                driver.find_element(By.XPATH, "//button[@class='again-btn white']").click()
+        try:
+                solve_again = driver.find_element(By.XPATH, "//button[@class='again-btn white']")
+                if solve_again.is_displayed():
+                        driver.find_element(By.XPATH, "//button[@class='again-btn white']").click()
+        except :
+                print('Element is not found')
 
         # give answer and submit
         time.sleep(15)
