@@ -9,7 +9,7 @@ link2 = "http://suninjuly.github.io/registration2.html"
 # mark registration in file pytest.ini
 # to run pytest -s -v -m registration file.py all tests in class
 @pytest.mark.registration
-class TestRegistration():
+class TestRegistration:
 
     # to run pytest -s -v -m positive file.py   , "not positive", "positive and win10", "positive or negative"
     @pytest.mark.positive
